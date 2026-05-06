@@ -16,6 +16,8 @@ from data_processing import (
 # Initialize Dash App
 app = dash.Dash(__name__, 
                 suppress_callback_exceptions=True,
+                assets_folder='assets',
+                include_assets_files=True,
                 meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}])
 server = app.server
 
@@ -46,7 +48,7 @@ def get_header(active_tab):
     return html.Div([
         html.Div([
             html.Button("☰", id="btn-toggle-sidebar", className="nav-item", style={"fontSize": "1.25rem", "padding": "0.5rem"}),
-            html.Img(src="/assets/logo.png", style={"height": "32px", "marginLeft": "12px"}),
+            html.Img(src="assets/logo.png", style={"height": "32px", "marginLeft": "12px"}),
             html.Span("LogSense AI", className="header-brand", style={"marginLeft": "8px"})
         ], style={"display": "flex", "alignItems": "center"}),
         html.Div([
